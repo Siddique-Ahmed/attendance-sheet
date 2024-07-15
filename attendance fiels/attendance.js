@@ -47,58 +47,6 @@ document.addEventListener("DOMContentLoaded", () => {
   let getData = localStorage.getItem("studentData");
 
   let setData = getData ? JSON.parse(getData) : [];
-  console.log(setData);
-
-  let getStudentData = document.querySelector("#getStudentData");
-
-  let count = 0;
-
-  for (let i = 0; i < setData.length; i++) {
-    count++;
-
-    let tr = document.createElement("tr");
-
-    let sno = document.createElement("td");
-    let name = document.createElement("td");
-    let fname = document.createElement("td");
-    let cname = document.createElement("td");
-    let tname = document.createElement("td");
-    let cnum = document.createElement("td");
-    let rnum = document.createElement("td");
-    let campname = document.createElement("td");
-    let classtime = document.createElement("td");
-
-    sno.textContent = count;
-    name.textContent = setData[i].studentName;
-    fname.textContent = setData[i].fatherName;
-    cname.textContent = setData[i].courseName;
-    tname.textContent = setData[i].teacherName;
-    cnum.textContent = setData[i].CNICNum;
-    rnum.textContent = setData[i].rollNum;
-    campname.textContent = setData[i].campus;
-    classtime.textContent = setData[i].classTime;
-
-    tr.appendChild(sno);
-    tr.appendChild(name);
-    tr.appendChild(fname);
-    tr.appendChild(cname);
-    tr.appendChild(tname);
-    tr.appendChild(cnum);
-    tr.appendChild(rnum);
-    tr.appendChild(campname);
-    tr.appendChild(classtime);
-
-    getStudentData.appendChild(tr);
-  }
-});
-
-// ############################### data from excel file ####################### \\
-
-document.addEventListener("DOMContentLoaded", () => {
-  let getData = localStorage.getItem("excelData");
-
-  let setData = getData ? JSON.parse(getData) : [];
-  console.log(setData);
 
   let getStudentData = document.querySelector("#getStudentData");
 

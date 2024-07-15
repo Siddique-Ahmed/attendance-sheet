@@ -100,15 +100,13 @@ function attendanceMarked() {
   let input = document.querySelector("#rollNumber").value.trim();
   let getData = localStorage.getItem("studentData");
   let data = JSON.parse(getData) || [];
+  
+  let attendanceData = JSON.parse(localStorage.getItem("attendanceData")) || [];
   let found = false;
-  let count = data.length;
-
-  data.forEach((value) => {
-    if (input === value.rollNum) {
+  
+  for(let value of data) {
+    if (input == value.rollNum) {
       found = true;
-
-      let attendanceData =
-        JSON.parse(localStorage.getItem("attendanceData")) || [];
 
       let alreadyMarked = attendanceData.some((att) => att.rollNum === input);
       if (alreadyMarked) {
@@ -123,8 +121,7 @@ function attendanceMarked() {
       let tr = document.createElement("tr");
 
       let sno = document.createElement("td");
-      sno.textContent = attendanceData.length;
-
+      sno.textContent = data.length; 
       let sname = document.createElement("td");
       sname.textContent = value.studentName;
 
@@ -154,11 +151,11 @@ function attendanceMarked() {
       tr.appendChild(attendanceMark);
 
       tbody.appendChild(tr);
-
+      
       return;
     }
-  });
-
+  }
+  
   if (!found) {
     swal.fire("Student data not found");
   }
