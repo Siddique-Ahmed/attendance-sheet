@@ -19,7 +19,7 @@ function out() {
 logout.addEventListener("click", () => {
   loader.style.display = "flex";
   setTimeout(() => {
-    document.location.href = "./index.html";
+    document.location.href = "../index.html";
     loader.style.display = "none";
   }, 2000);
 });
