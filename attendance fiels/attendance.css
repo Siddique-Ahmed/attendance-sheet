@@ -138,6 +138,41 @@ body {
 .navbar button:hover {
   background: linear-gradient(to top, #124598, #0087cf);
 }
+.loaderBox {
+  width: 100%;
+  min-height: 90vh;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.8),
+    rgba(255, 255, 255, 0.8)
+  );
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  z-index: 9999;
+}
+.loaderBox #loader {
+  width: 80px;
+  height: 80px;
+  border-left: 5px solid #0087cf;
+  border-top: 5px solid #0087cf;
+  border-right: 5px solid #0087cf;
+  border-bottom: 5px solid #124598;
+  border-radius: 50px;
+  animation: loader 0.3s ease-in-out infinite;
+}
+@keyframes loader {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 /* ########################### Media query ################################## */
 .mainContent {
   padding: 20px;
@@ -145,7 +180,7 @@ body {
   margin: 0 auto;
 }
 
-h1 {
+.mainContent h1 {
   text-align: center;
   color: #124598;
   margin-bottom: 20px;

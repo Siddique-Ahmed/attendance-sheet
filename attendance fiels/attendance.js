@@ -19,8 +19,8 @@ function out() {
 logout.addEventListener("click", () => {
   loader.style.display = "flex";
   setTimeout(() => {
-    document.location.href = "../index.html";
     loader.style.display = "none";
+    document.location.href = "../index.html";
   }, 2000);
 });
 // ################################ hamburger Script ####################################### \\
