@@ -42,124 +42,124 @@ function hamburgerUP() {
 }
 // ################## attendancd marked ############################### \\
 
-
 document.addEventListener("DOMContentLoaded", renderSavedAttendanceData);
-    let submitBtn = document.querySelector("#Submit");
+let submitBtn = document.querySelector("#Submit");
 
-    submitBtn.addEventListener("click", (e) => {
-      e.preventDefault();
-      attendanceMarked();
+submitBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+  attendanceMarked();
+});
+
+function renderSavedAttendanceData() {
+  let savedData = localStorage.getItem("attendanceData");
+  if (savedData) {
+    let data = JSON.parse(savedData);
+    let tbody = document.querySelector("#getStudentData");
+    tbody.innerHTML = "";
+
+    data.forEach((value, index) => {
+      let tr = document.createElement("tr");
+
+      let sno = document.createElement("td");
+      sno.textContent = index + 1;
+
+      let sname = document.createElement("td");
+      sname.textContent = value.studentName;
+
+      let cname = document.createElement("td");
+      cname.textContent = value.courseName;
+
+      let cnum = document.createElement("td");
+      cnum.textContent = value.CNICNum;
+
+      let rnum = document.createElement("td");
+      rnum.textContent = value.rollNum;
+
+      let classTime = document.createElement("td");
+      classTime.textContent = value.classTime;
+
+      let i = document.createElement("i");
+      i.className = "fa-solid fa-check";
+      let attendanceMark = document.createElement("td");
+      attendanceMark.appendChild(i);
+
+      tr.appendChild(sno);
+      tr.appendChild(sname);
+      tr.appendChild(cname);
+      tr.appendChild(cnum);
+      tr.appendChild(rnum);
+      tr.appendChild(classTime);
+      tr.appendChild(attendanceMark);
+
+      tbody.appendChild(tr);
     });
+  }
+}
 
-    function renderSavedAttendanceData() {
-      let savedData = localStorage.getItem("attendanceData");
-      if (savedData) {
-        let data = JSON.parse(savedData);
-        let tbody = document.querySelector("#getStudentData");
-        tbody.innerHTML = ''; 
+function attendanceMarked() {
+  let input = document.querySelector("#rollNumber").value.trim();
+  let getData = localStorage.getItem("studentData");
+  let data = JSON.parse(getData) || [];
+  let found = false;
+  let count = data.length;
 
-        data.forEach((value, index) => {
-          let tr = document.createElement("tr");
+  data.forEach((value) => {
+    if (input === value.rollNum) {
+      found = true;
 
-          let sno = document.createElement("td");
-          sno.textContent = index + 1;
+      let attendanceData =
+        JSON.parse(localStorage.getItem("attendanceData")) || [];
 
-          let sname = document.createElement("td");
-          sname.textContent = value.studentName;
-
-          let cname = document.createElement("td");
-          cname.textContent = value.courseName;
-
-          let cnum = document.createElement("td");
-          cnum.textContent = value.CNICNum;
-
-          let rnum = document.createElement("td");
-          rnum.textContent = value.rollNum;
-
-          let classTime = document.createElement("td");
-          classTime.textContent = value.classTime;
-
-          let i = document.createElement("i");
-          i.className = "fa-solid fa-check";
-          let attendanceMark = document.createElement("td");
-          attendanceMark.appendChild(i);
-
-          tr.appendChild(sno);
-          tr.appendChild(sname);
-          tr.appendChild(cname);
-          tr.appendChild(cnum);
-          tr.appendChild(rnum);
-          tr.appendChild(classTime);
-          tr.appendChild(attendanceMark);
-
-          tbody.appendChild(tr);
-        });
+      let alreadyMarked = attendanceData.some((att) => att.rollNum === input);
+      if (alreadyMarked) {
+        swal.fire("Attendance already marked");
+        return;
       }
+
+      attendanceData.push(value);
+      localStorage.setItem("attendanceData", JSON.stringify(attendanceData));
+
+      let tbody = document.querySelector("#getStudentData");
+      let tr = document.createElement("tr");
+
+      let sno = document.createElement("td");
+      sno.textContent = attendanceData.length;
+
+      let sname = document.createElement("td");
+      sname.textContent = value.studentName;
+
+      let cname = document.createElement("td");
+      cname.textContent = value.courseName;
+
+      let cnum = document.createElement("td");
+      cnum.textContent = value.CNICNum;
+
+      let rnum = document.createElement("td");
+      rnum.textContent = value.rollNum;
+
+      let classTime = document.createElement("td");
+      classTime.textContent = value.classTime;
+
+      let i = document.createElement("i");
+      i.className = "fa-solid fa-check";
+      let attendanceMark = document.createElement("td");
+      attendanceMark.appendChild(i);
+
+      tr.appendChild(sno);
+      tr.appendChild(sname);
+      tr.appendChild(cname);
+      tr.appendChild(cnum);
+      tr.appendChild(rnum);
+      tr.appendChild(classTime);
+      tr.appendChild(attendanceMark);
+
+      tbody.appendChild(tr);
+
+      return;
     }
+  });
 
-    function attendanceMarked(){
-      let input = document.querySelector("#rollNumber").value.trim();
-      let getData = localStorage.getItem("studentData");
-      let data = JSON.parse(getData) || [];
-      let found = false;
-      let count = data.length;
-
-      data.forEach((value) => {
-        if(input === value.rollNum){
-          found = true;
-
-          let attendanceData = JSON.parse(localStorage.getItem("attendanceData")) || [];
-
-          let alreadyMarked = attendanceData.some(att => att.rollNum === input);
-          if (alreadyMarked) {
-            swal.fire("Attendance already marked");
-            return;
-          }
-
-          attendanceData.push(value);
-          localStorage.setItem("attendanceData", JSON.stringify(attendanceData));
-
-          let tbody = document.querySelector("#getStudentData");
-          let tr = document.createElement("tr");
-
-          let sno = document.createElement("td");
-          sno.textContent = attendanceData.length;
-
-          let sname = document.createElement("td");
-          sname.textContent = value.studentName;
-
-          let cname = document.createElement("td");
-          cname.textContent = value.courseName;
-
-          let cnum = document.createElement("td");
-          cnum.textContent = value.CNICNum;
-
-          let rnum = document.createElement("td");
-          rnum.textContent = value.rollNum;
-
-          let classTime = document.createElement("td");
-          classTime.textContent = value.classTime;
-
-          let i = document.createElement("i");
-          i.className = "fa-solid fa-check";
-          let attendanceMark = document.createElement("td");
-          attendanceMark.appendChild(i);
-
-          tr.appendChild(sno);
-          tr.appendChild(sname);
-          tr.appendChild(cname);
-          tr.appendChild(cnum);
-          tr.appendChild(rnum);
-          tr.appendChild(classTime);
-          tr.appendChild(attendanceMark);
-
-          tbody.appendChild(tr);
-
-          return; 
-        }
-      });
-
-      if(!found){
-        swal.fire("Student data not found");
-      }
-    }
+  if (!found) {
+    swal.fire("Student data not found");
+  }
+}

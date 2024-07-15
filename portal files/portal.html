@@ -34,6 +34,11 @@
     </div>
     <section class="maincontent">
       <button id="addStudent">Add Student</button>
+      <div class="excelBox">
+        <label for="excelFile"><img src="../img/excel.png" /></label>
+        <input type="file" name="" id="excelFile" />
+        <button id="excelBtn">Add File</button>
+      </div>
       <div class="studentForm">
         <div class="formhead">
           <h1>Student Details</h1>
@@ -55,5 +60,6 @@
     <!-- ############################### script file ############################### -->
     <script src="./portal.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
   </body>
 </html>

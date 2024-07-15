@@ -12,7 +12,7 @@ function checkEye() {
     passEye.type = "text";
     eye.classList.add("fa-eye-slash");
     eye.classList.remove("fa-eye");
-  } else{
+  } else {
     passEye.type = "password";
     eye.classList.add("fa-eye");
     eye.classList.remove("fa-eye-slash");

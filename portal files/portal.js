@@ -45,12 +45,14 @@ function hamburgerUP() {
 let addStudentBtn = document.querySelector("#addStudent");
 let studentForm = document.querySelector(".studentForm");
 let cancel = document.querySelector("#cancel");
+let excelBox = document.querySelector(".excelBox");
 
 addStudentBtn.addEventListener("click", () => {
   loader.style.display = "flex";
   setTimeout(() => {
     loader.style.display = "none";
     addStudentBtn.style.display = "none";
+    excelBox.style.display = "none";
     studentForm.style.display = "flex";
   }, 1200);
 });
@@ -58,16 +60,15 @@ addStudentBtn.addEventListener("click", () => {
 cancel.addEventListener("click", () => {
   addStudentBtn.style.display = "block";
   studentForm.style.display = "none";
+  excelBox.style.display = "flex";
 });
 
 // ############### submit student Data ########################## \\
 
-// Initialize elements and data
 let submitStudentData = document.querySelector("#submitStudentData");
 let data = [];
 let studentData = {};
 
-// Load existing student data from localStorage
 function loadDataToLocalStorage() {
   let setData = localStorage.getItem("studentData");
   if (setData) {
@@ -76,15 +77,12 @@ function loadDataToLocalStorage() {
 }
 loadDataToLocalStorage();
 
-// Event listener for form submission
 submitStudentData.addEventListener("click", (e) => {
-  e.preventDefault(); // Prevent default form submission
-  submitData(); // Call submit data function
+  e.preventDefault();
+  submitData();
 });
 
-// Function to submit student data
 function submitData() {
-  // Fetch values from input fields
   let studentName = document.querySelector("#sName").value;
   let fatherName = document.querySelector("#fName").value;
   let courseName = document.querySelector("#CName").value;
@@ -94,7 +92,6 @@ function submitData() {
   let campus = document.querySelector("#campName").value;
   let classTime = document.querySelector("#cTime").value;
 
-  // Validate required fields
   if (
     studentName === "" ||
     fatherName === "" ||
@@ -109,7 +106,6 @@ function submitData() {
     return;
   }
 
-  // Validate name lengths
   if (studentName.length > 30 || studentName.length < 3) {
     swal.fire("Name must be between 3 and 30 characters");
     return;
@@ -119,7 +115,6 @@ function submitData() {
     return;
   }
 
-  // Create student data object
   studentData = {
     studentName: studentName,
     fatherName: fatherName,
@@ -131,24 +126,20 @@ function submitData() {
     classTime: classTime,
   };
 
-  // Check if roll number already exists
   if (!saveToLocalStorage(rollNum)) {
-    // If roll number is unique, add student data to array and save to localStorage
     data.push(studentData);
     localStorage.setItem("studentData", JSON.stringify(data));
 
-    // Show loader and reset form after a delay
-    loader.style.display = "flex";
     setTimeout(() => {
-      loader.style.display = "none";
       studentForm.style.display = "none";
+      excelBox.style.display = "flex";
       addStudentBtn.style.display = "block";
       resetForm();
     }, 1200);
+    swal.fire("data added successfully")
   }
 }
 
-// Function to reset form fields
 function resetForm() {
   document.querySelector("#sName").value = "";
   document.querySelector("#fName").value = "";
@@ -160,9 +151,7 @@ function resetForm() {
   document.querySelector("#cTime").value = "";
 }
 
-// Function to check for duplicate roll numbers and save to localStorage
 function saveToLocalStorage(newRollNum) {
-  // Check if roll number already exists
   let isSame = data.some((check) => check.rollNum === newRollNum);
   if (isSame) {
     swal.fire("Student already enrolled");
@@ -171,3 +160,30 @@ function saveToLocalStorage(newRollNum) {
     return false;
   }
 }
+
+// #################### excel file to json and save in localstorage ###################### \\
+
+document.getElementById('excelBtn').addEventListener('click', function() {
+  const fileInput = document.getElementById('excelFile');
+  const file = fileInput.files[0];
+  if (!file) {
+      swal.fire('Please select an Excel file first.');
+      return;
+  }
+  const reader = new FileReader();
+
+  reader.onload = function(e) {
+      const data = new Uint8Array(e.target.result);
+      const workbook = XLSX.read(data, { type: 'array' });
+
+      const sheetName = workbook.SheetNames[0];
+      const worksheet = workbook.Sheets[sheetName];
+      const json = XLSX.utils.sheet_to_json(worksheet);
+
+      localStorage.setItem("excelData",JSON.stringify(json, null, 2));
+      
+  };
+
+  reader.readAsArrayBuffer(file);
+  swal.fire("data added successfully")
+});

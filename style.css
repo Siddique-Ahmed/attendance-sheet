@@ -1,22 +1,22 @@
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: sans-serif;
 }
-body{
+body {
   width: 100%;
   min-height: 100vh;
   position: relative;
 }
-.main{
+.main {
   width: 100%;
   min-height: inherit;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.container{
+.container {
   width: 540px;
   min-height: 340px;
   display: flex;
@@ -28,21 +28,21 @@ body{
   border-radius: 10px;
   overflow: hidden;
 }
-.container .heading{
+.container .heading {
   width: 100%;
   height: 70px;
-  background: linear-gradient(270deg,#0087cf,#124598);
+  background: linear-gradient(270deg, #0087cf, #124598);
   display: flex;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
   color: #fff;
 }
-.container .heading h1{
+.container .heading h1 {
   font-size: 28px;
   font-weight: 500;
 }
-.container .logo{
+.container .logo {
   width: 100%;
   min-height: 120px;
   display: flex;
@@ -52,7 +52,7 @@ body{
   justify-content: space-evenly;
   padding: 20px 0;
 }
-.container .logo img{
+.container .logo img {
   width: 120px;
   object-fit: cover;
   transition: 1s ease-in-out;
@@ -60,22 +60,22 @@ body{
   cursor: pointer;
   animation: logo 3s ease-in-out 2s infinite;
 }
-@keyframes logo{
-  0%{
+@keyframes logo {
+  0% {
     transform: rotateY(0) scale(0.8);
   }
-  50%{
+  50% {
     transform: rotateY(360deg) scale(1);
   }
-  100%{
+  100% {
     transform: rotateY(0) scale(0.8);
   }
 }
-.container .logo p{
+.container .logo p {
   font-size: 23px;
   color: #124598;
 }
-.container form{
+.container form {
   width: 100%;
   min-height: 210px;
   padding: 20px 10px;
@@ -85,12 +85,12 @@ body{
   justify-content: space-evenly;
   flex-wrap: wrap;
 }
-.container form label{
+.container form label {
   font-size: 18px;
   font-weight: 500;
   color: #124598;
 }
-.container form .inputBox{
+.container form .inputBox {
   width: 100%;
   min-height: 70px;
   display: flex;
@@ -101,7 +101,7 @@ body{
   position: relative;
   padding: 10px 0;
 }
-.container form .inputBox input{
+.container form .inputBox input {
   width: 100%;
   height: 50px;
   border-radius: 5px;
@@ -112,17 +112,17 @@ body{
   margin-top: 5px;
   transition: 0.3s ease-in-out;
 }
-form .inputBox input:focus{
+form .inputBox input:focus {
   box-shadow: 0 0 5px #124598;
 }
-form .inputBox i{
+form .inputBox i {
   position: absolute;
   right: 8px;
   top: 48px;
   font-size: 28px;
   cursor: pointer;
 }
-form .btnBox{
+form .btnBox {
   width: 100%;
   min-height: 30px;
   display: flex;
@@ -131,7 +131,7 @@ form .btnBox{
   flex-wrap: wrap;
   padding: 20px 0;
 }
-form .btnBox button{
+form .btnBox button {
   width: 190px;
   height: 50px;
   border-radius: 40px;
@@ -145,14 +145,18 @@ form .btnBox button{
   transition: 0.3s ease-in-out;
   z-index: 9999;
 }
-form .btnBox button:hover{
-  background: linear-gradient(to right,#0087cf,#124598);
+form .btnBox button:hover {
+  background: linear-gradient(to right, #0087cf, #124598);
   color: #fff;
 }
-.loaderBox{
+.loaderBox {
   width: 100%;
   min-height: 90vh;
-  background: linear-gradient(180deg, rgba(255,255,255,0.8),rgba(255,255,255,0.8));
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.8),
+    rgba(255, 255, 255, 0.8)
+  );
   position: absolute;
   top: 0;
   left: 0;
@@ -162,7 +166,7 @@ form .btnBox button:hover{
   flex-wrap: wrap;
   z-index: 9999;
 }
-.loaderBox #loader{
+.loaderBox #loader {
   width: 80px;
   height: 80px;
   border-left: 5px solid #0087cf;
@@ -173,32 +177,32 @@ form .btnBox button:hover{
   animation: loader 0.3s ease-in-out infinite;
 }
 @keyframes loader {
-  0%{
+  0% {
     transform: rotate(0);
   }
-  100%{
+  100% {
     transform: rotate(360deg);
   }
 }
 
 /* ########################### portal work ########################################## */
-.navbar{
+.navbar {
   width: 100%;
   height: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  background: linear-gradient(to left, #124598,#0087cf);
+  background: linear-gradient(to left, #124598, #0087cf);
   position: relative;
 }
-.navbar i{
+.navbar i {
   font-size: 25px;
   color: #fff;
   cursor: pointer;
   display: none;
 }
-.navbar .logo{
+.navbar .logo {
   width: 25%;
   min-height: 50px;
   display: flex;
@@ -206,7 +210,7 @@ form .btnBox button:hover{
   justify-content: flex-start;
   flex-wrap: wrap;
 }
-.navbar .logo h1{
+.navbar .logo h1 {
   font-size: 17px;
   font-weight: 600;
   line-height: 1.1;
@@ -214,14 +218,14 @@ form .btnBox button:hover{
   margin-left: 20px;
   transition: 0.3s ease-in-out;
 }
-.navbar .logo h1:hover{
+.navbar .logo h1:hover {
   transform: scale(1.1);
 }
-.navbar .logo h1 a{
+.navbar .logo h1 a {
   text-decoration: none;
   color: #fff;
 }
-.navbar .list{
+.navbar .list {
   width: 50%;
   min-height: 50px;
   display: flex;
@@ -231,10 +235,10 @@ form .btnBox button:hover{
   list-style: none;
   transition: 0.3s ease-in-out;
 }
-.navbar .list li{
+.navbar .list li {
   margin-left: 20px;
 }
-.navbar .list li a{
+.navbar .list li a {
   text-decoration: none;
   color: #fff;
   font-size: 13px;
@@ -242,10 +246,10 @@ form .btnBox button:hover{
   transition: 0.3s ease-in-out;
   cursor: pointer;
 }
-.navbar .list li a:hover{
+.navbar .list li a:hover {
   color: #3dbbff;
 }
-.navbar .logout{
+.navbar .logout {
   width: 25%;
   height: 100%;
   display: flex;
@@ -253,7 +257,7 @@ form .btnBox button:hover{
   justify-content: flex-end;
   flex-wrap: wrap;
 }
-.navbar .logout #user{
+.navbar .logout #user {
   width: 40px;
   height: 40px;
   display: flex;
@@ -267,10 +271,10 @@ form .btnBox button:hover{
   cursor: pointer;
   margin-right: 50px;
 }
-.logout #user:hover i{
-transform: scale(1.1);
+.logout #user:hover i {
+  transform: scale(1.1);
 }
-.navbar .logout button i{
+.navbar .logout button i {
   font-size: 18px;
   font-weight: 600;
   line-height: 1px;
@@ -278,7 +282,7 @@ transform: scale(1.1);
   padding: 15px;
   color: #124598;
 }
-.navbar>button{
+.navbar > button {
   position: absolute;
   top: 70px;
   right: 13px;
@@ -286,7 +290,7 @@ transform: scale(1.1);
   height: 30px;
   border: none;
   outline: none;
-  background: linear-gradient(to top,#0087cf,#124598);
+  background: linear-gradient(to top, #0087cf, #124598);
   font-size: 18px;
   font-weight: 700;
   cursor: pointer;
@@ -298,31 +302,32 @@ transform: scale(1.1);
   display: none;
 }
 @keyframes logout {
-  0%{
+  0% {
     transform: scale(0);
   }
-  50%{
+  50% {
     transform: scale(1.1);
   }
-  100%{
+  100% {
     transform: scale(1);
   }
 }
-.navbar button:hover{
-  background: linear-gradient(to top, #124598,#0087cf);
+.navbar button:hover {
+  background: linear-gradient(to top, #124598, #0087cf);
 }
 /* ############################ main content styling ########################### */
 
-.maincontent{
+.maincontent {
   width: 100%;
   min-height: 91.8vh;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
   flex-wrap: wrap;
   position: relative;
 }
-.maincontent>button{
+.maincontent > button {
   width: 340px;
   height: 50px;
   border-radius: 10px;
@@ -330,16 +335,16 @@ transform: scale(1.1);
   font-size: 19px;
   font-weight: 700;
   color: #fff;
-  background: linear-gradient(to left , #0087cf ,#124598);
+  background: linear-gradient(to left, #0087cf, #124598);
   cursor: pointer;
-  align-self: flex-start;
-  margin: 10px 10px 0 0 ;
+  align-self: center;
+  margin: 10px 10px 0 0;
   display: block;
 }
-.maincontent>button:hover{
-  background: linear-gradient(to top, #0087cf ,#124598);
+.maincontent > button:hover {
+  background: linear-gradient(to top, #0087cf, #124598);
 }
-.maincontent .studentForm{
+.maincontent .studentForm {
   width: 540px;
   min-height: 130px;
   border: 1px solid #000;
@@ -353,17 +358,17 @@ transform: scale(1.1);
   animation: form 3s ease-in-out alternate;
 }
 @keyframes form {
-  0%{
+  0% {
     transform: scale(0);
   }
-  50%{
+  50% {
     transform: scale(1);
   }
-  100%{
+  100% {
     transform: scale(0.8);
   }
 }
-.studentForm .formhead{
+.studentForm .formhead {
   width: 100%;
   height: 50px;
   display: flex;
@@ -372,12 +377,12 @@ transform: scale(1.1);
   flex-wrap: wrap;
   border-bottom: 3px solid #124598;
 }
-.studentForm .formhead h1{
+.studentForm .formhead h1 {
   font-size: 28px;
   font-weight: 500;
   color: #0087cf;
 }
-.studentForm form{
+.studentForm form {
   width: 100%;
   min-height: 120px;
   display: flex;
@@ -387,10 +392,10 @@ transform: scale(1.1);
   flex-wrap: wrap;
   padding: 30px 10px;
 }
-.studentForm form input{
+.studentForm form input {
   width: 100%;
   height: 35px;
-  margin: 10px 0 0 0 ;
+  margin: 10px 0 0 0;
   font-size: 16px;
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -398,26 +403,26 @@ transform: scale(1.1);
   transition: 0.3s ease-in-out;
   padding: 6px 12px;
 }
-.studentForm form input:focus{
+.studentForm form input:focus {
   box-shadow: 0 0 4px #124598;
 }
-.studentForm form button{
+.studentForm form button {
   margin-top: 40px;
   width: 180px;
   height: 40px;
   font-style: 18px;
   font-weight: 700;
-  background: linear-gradient(to right, #124598 ,#0087cf);
+  background: linear-gradient(to right, #124598, #0087cf);
   letter-spacing: 1px;
   border: none;
   outline: none;
   color: #fff;
-  border-radius: 40px; 
+  border-radius: 40px;
 }
-.studentForm form button:hover{
-  background: linear-gradient(to bottom, #124598 ,#0087cf);
+.studentForm form button:hover {
+  background: linear-gradient(to bottom, #124598, #0087cf);
 }
-.studentForm .cncl{
+.studentForm .cncl {
   position: absolute;
   top: 8px;
   right: 10px;
@@ -431,64 +436,60 @@ transform: scale(1.1);
   color: #fff;
   cursor: pointer;
 }
-.studentForm .cncl i{
+.studentForm .cncl i {
   font-size: 18px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.maincontent .excelBox {
+  width: 100%;
+  min-height: 40vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.excelBox input {
+  display: none;
+}
+.excelBox label {
+  width: 130px;
+  height: 130px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+.excelBox label img {
+  width: 100%;
+  border-radius: 20px;
+}
+.excelBox button {
+  width: 120px;
+  height: 30px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-size: 17px;
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(to top, #0087cf, #124598);
+  border-radius: 5px;
+}
+.excelBox button:hover {
+  background: linear-gradient(to bottom, #0087cf, #124598);
+}
 
 /* ################################### media query ############################### */
 @media (max-width: 775px) {
   .navbar {
     justify-content: space-between;
   }
-  .navbar .logo{
+  .navbar .logo {
     width: 50%;
   }
-  .navbar .list{
+  .navbar .list {
     background: #124598;
     position: absolute;
     top: -900px;
@@ -502,46 +503,56 @@ transform: scale(1.1);
     border-bottom-right-radius: 10px;
     z-index: 9999;
   }
-  .navbar i{
+  .navbar i {
     display: flex;
     z-index: 9999;
   }
-  .navbar .list li{
+  .navbar .list li {
     margin: 50px 0 20px 10px;
     z-index: 9999;
-
   }
-  .navbar #logout{
+  .navbar #logout {
     right: 20px;
   }
 }
+@media (max-width: 565px) {
+  .maincontent .studentForm {
+    width: 380px;
+  }
+}
 @media (max-width: 390px) {
-  .container .heading{
+  .container .heading {
     height: 50px;
   }
-  .container .heading h1{
+  .container .heading h1 {
     font-size: 19px;
   }
-  .container .logo{
+  .container .logo {
     padding: 0;
   }
-  .container form .inputBox i{
+  .container form .inputBox i {
     top: 47px;
   }
-  .container .logo p{
+  .container .logo p {
     text-align: center;
   }
   /* ########################## portal section styling ########################## */
-  .navbar .logo h1{
+  .navbar .logo h1 {
     margin-left: 5px;
   }
-  .navbar .logout #user{
+  .navbar .logout #user {
     margin-right: 15px;
   }
-  .navbar #logout{
+  .navbar #logout {
     width: 60px;
     top: 55px;
     right: 6px;
     font-size: 14px;
+  }
+  .maincontent .studentForm {
+    width: 290px;
+  }
+  .maincontent > button {
+    width: 230px;
   }
 }
