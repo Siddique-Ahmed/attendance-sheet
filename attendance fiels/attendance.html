@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>STUDENT || ATTENDANCE</title>
+    <link rel="stylesheet" href="./attendance.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="logo">
+        <h1><a href="./portal.html">SAYLANI STUDENT</a></h1>
+      </div>
+      <ul class="list">
+        <li><a href="../portal files/portal.html">HOME</a></li>
+        <li><a href="./attendance.html">STUDENT LIST</a></li>
+        <li><a href="../sheet file/sheet.html">ATTANDANCE SHEET</a></li>
+      </ul>
+      <i id="hamburger" class="fa-solid fa-bars"></i>
+      <div class="logout">
+        <button href="#" id="user"><i class="fa-solid fa-user"></i></button>
+      </div>
+      <button id="logout">Logout</button>
+    </nav> 
+
+    <!-- ############################### table data ############################### -->
+    <section class="mainContent">
+      <h1>Student Details</h1>
+      <div class="tableContainer">
+          <table>
+              <thead>
+                  <tr>
+                      <th>S.no</th>
+                      <th>Student Name</th>
+                      <th>Father Name</th>
+                      <th>Course Name</th>
+                      <th>Teacher Name</th>
+                      <th>CNIC Number</th>
+                      <th>Roll Number</th>
+                      <th>Campus Name</th>
+                      <th>Class Time</th>
+                  </tr>
+              </thead>
+              <tbody id="getStudentData"></tbody>
+          </table>
+      </div>
+  </section>
+
+
+
+
+
+
+
+    <!-- ############################### script file ############################### -->
+     <script src="./attendance.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  </body>
+</html>

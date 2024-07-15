@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ADMIN || PANEL</title>
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+<div class="main">
+  <div class="container">
+    <div class="heading">
+      <h1>STUDENT LOGIN</h1>
+    </div>
+    <div class="logo">
+      <img src="./img/logo.jpeg">
+      <p>Student data for student attendance</p>
+    </div>
+    <form action="portal.html">
+      <div class="inputBox">
+        <label for="email">Email</label>
+        <input type="text" placeholder="Enter Email" id="email">
+      </div>
+      <div class="inputBox">
+        <label for="password">Password</label>
+        <input type="password" placeholder="Enter Password" id="password">
+        <i id="eye" class="fa-solid fa-eye"></i>
+      </div>
+      <div class="btnBox">
+        <button id="login">Login</button>
+      </div>
+    </form>
+  </div>
+  <div class="loaderBox">
+    <div id="loader"></div>
+  </div>
+</div>
+  
+
+  <!-- ########################## script file ########################## -->
+   <script src="./script.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+</html>
